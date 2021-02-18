@@ -14,11 +14,14 @@ export const displayResults = data => {
         <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="https://image.tmdb.org/t/p/w92/${movie.poster_path}" alt="${movie.title}">
+                        <img src="https://image.tmdb.org/t/p/w92/${movie.poster_path}" onerroe="this.src='https://via.placeholder.com/92x138';" alt="${movie.title}">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">${movie.title}</h5>
+                            <h5 class="card-title">
+                                <span class="badge badge-primary" style="background:cadetblue">${movie.vote_average}</span> 
+                                ${movie.title}
+                            </h5>
                             <p class="card-text">${movie.overview}.</p>
                         </div>
                     </div>
