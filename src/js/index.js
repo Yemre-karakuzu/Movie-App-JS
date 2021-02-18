@@ -1,6 +1,7 @@
 import Search from "./models/Search";
 import { elements } from "./base";
 import * as searchViews from "./views/searchViews"
+import * as movieView from "./views/movieViews"
 import { Movie } from "./models/Movie";
 
 const state = {};
@@ -22,7 +23,6 @@ const searchController = async() => {
 elements.searchForm.addEventListener('submit', function(e) {
     e.preventDefault();
     searchController();
-    console.log("Form submitted");
 });
 
 //Movie Controller
@@ -32,8 +32,9 @@ const movieController = async() => {
     if (id) {
         state.movie = new Movie(id);
         await state.movie.getMovie();
+        movieView.displayMovie(state.movie.data);
+        movieView.backToTop();
     }
-
 }
 
 window.addEventListener("hashchange", movieController)

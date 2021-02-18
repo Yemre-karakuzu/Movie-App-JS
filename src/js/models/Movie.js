@@ -1,3 +1,5 @@
+import { api_key, base_url } from "../config"
+
 export class Movie {
     constructor(id) {
         this.id = id;
