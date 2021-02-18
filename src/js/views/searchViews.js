@@ -20,7 +20,7 @@ export const displayResults = data => {
                         <div class="card-body">
                             <h5 class="card-title">
                                 <span class="badge badge-primary" style="background:cadetblue">${movie.vote_average}</span> 
-                                ${movie.title}
+                                <a href="#${movie.id}">${movie.title}</a>
                             </h5>
                             <p class="card-text">${movie.overview}.</p>
                         </div>
@@ -28,7 +28,6 @@ export const displayResults = data => {
                 </div>
         </div>
         `;
-
         elements.searchResults.insertAdjacentHTML("beforeend", html)
     });
 }

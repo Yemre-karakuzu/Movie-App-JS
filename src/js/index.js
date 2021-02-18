@@ -1,11 +1,11 @@
 import Search from "./models/Search";
 import { elements } from "./base";
 import * as searchViews from "./views/searchViews"
+import { Movie } from "./models/Movie";
 
-const state = {
+const state = {};
 
-};
-
+//Search Controller
 const searchController = async() => {
     const keyword = elements.searchInput.value;
     if (keyword) {
@@ -24,3 +24,16 @@ elements.searchForm.addEventListener('submit', function(e) {
     searchController();
     console.log("Form submitted");
 });
+
+//Movie Controller
+
+const movieController = async() => {
+    const id = window.location.hash.replace("#", "");
+    if (id) {
+        state.movie = new Movie(id);
+        await state.movie.getMovie();
+    }
+
+}
+
+window.addEventListener("hashchange", movieController)
