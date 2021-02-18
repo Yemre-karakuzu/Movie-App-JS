@@ -6,18 +6,20 @@ const state = {
 
 };
 
-const searchController = async () => {
+const searchController = async() => {
     const keyword = elements.searchInput.value;
     if (keyword) {
         state.search = new Search(keyword);
         await state.search.getResults();
+        searchViews.clearResults()
+        searchViews.clearInput()
         searchViews.displayResults(state.search.data);
     } else {
         alert("anahtar kelime giriniz.");
     }
 }
 
-elements.searchForm.addEventListener('submit', function (e) {
+elements.searchForm.addEventListener('submit', function(e) {
     e.preventDefault();
     searchController();
     console.log("Form submitted");
